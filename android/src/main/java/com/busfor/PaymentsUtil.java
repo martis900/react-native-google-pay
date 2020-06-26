@@ -84,6 +84,13 @@ public class PaymentsUtil {
             put("stripe:publishableKey", stripe.getString("publishableKey"));
             put("stripe:version", stripe.getString("version"));
           }
+          if (tokenizationSpecification.hasKey("braintree")) {
+              final ReadableMap braintree = tokenizationSpecification.getMap("braintree");
+              put("braintree:clientKey", braintree.getString("braintree:clientKey"));
+              put("braintree:merchantId", braintree.getString("braintree:merchantId"));
+              put("braintree:sdkVersion", braintree.getString("braintree:sdkVersion"));
+              put("braintree:apiVersion", braintree.getString("braintree:apiVersion"));
+            }
         }
       });
     }};
